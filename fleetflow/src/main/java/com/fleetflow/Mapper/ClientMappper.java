@@ -15,6 +15,6 @@ public interface ClientMappper {
     ClientDto toDto(Client client);
     List<ClientDto> toDto(List<Client> clients);
 
-    @Mapping(target = "clientId", ignore = true)
+    @Mapping(target = "id", ignore = true)
     void updateClientDto(ClientDto dto, @MappingTarget Client client);
 }

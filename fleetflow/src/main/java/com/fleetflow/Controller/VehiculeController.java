@@ -2,8 +2,11 @@ package com.fleetflow.Controller;
 
 
 import com.fleetflow.Dto.VehiculeDto;
+import com.fleetflow.Enums.VehiculeStatus;
 import com.fleetflow.Service.ClientService;
 import com.fleetflow.Service.VehiculeService;
+import lombok.Data;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,20 +20,29 @@ public class VehiculeController {
         this.vehiculeService = vehiculeService;
     }
 
-    @GetMapping("/afficher/disponible")
-    public List<VehiculeDto> afficherVehiculDisponible(){
-        return vehiculeService.getVehiculesDisponible();
+    @GetMapping("/disponibles")
+    public ResponseEntity< List<VehiculeDto>> afficherVehiculDisponible(){
+        List<VehiculeDto>disponibles=vehiculeService.getVehiculesDisponible(VehiculeStatus.DISPONIBLE);
+        return ResponseEntity.ok(disponibles);
     }
     @PostMapping("/ajouter")
     public VehiculeDto ajouterVehicule(VehiculeDto dto){
         return vehiculeService.addVehicule(dto);
     }
-    @PutMapping("/modifier")
+    @PutMapping("/modifier/{id}")
     public VehiculeDto modifierVehicule(@PathVariable Long id,@RequestBody VehiculeDto dto){
         return vehiculeService.updateVehicule(id,dto);
     }
-    @DeleteMapping("/supprimer")
+    @DeleteMapping("/supprimer/{id}")
     public void supprimerVehicule(@PathVariable Long id){
         vehiculeService.deleteVehicule(id);
+    }
+    @GetMapping("/statut")
+    public List<VehiculeDto>findbyStatut(@RequestParam VehiculeStatus status){
+        return vehiculeService.getVehiculeByStatut(status);
+    }
+    @GetMapping("/capacite/{seuil}")
+    public List<VehiculeDto> findByCapaciteGreaterThan(@PathVariable double seuil){
+        return vehiculeService.getVehiculeCapaciteGreaterThan(seuil);
     }
 }

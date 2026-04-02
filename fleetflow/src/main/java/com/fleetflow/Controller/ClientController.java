@@ -23,11 +23,11 @@ public class ClientController {
     public ClientDto ajouterClient(ClientDto dto){
         return clientService.addClient(dto);
     }
-    @PutMapping("/modifier")
+    @PutMapping("/modifier/{id}")
     public ClientDto modifierClient(@PathVariable Long id,@RequestBody ClientDto dto){
         return clientService.updateClient(id,dto);
     }
-    @DeleteMapping("/supprimer")
+    @DeleteMapping("/supprimer/{id}")
     public void supprimerClient(@PathVariable Long id){
         clientService.deleteClient(id);
     }

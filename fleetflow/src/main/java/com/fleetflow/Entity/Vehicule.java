@@ -1,8 +1,11 @@
 package com.fleetflow.Entity;
 
 
+import com.fleetflow.Enums.VehiculeStatus;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -16,10 +19,11 @@ public class Vehicule {
     private Long id;
     private String matricule;
     private String type;
-    private String capacite;
-    private String statut;
+    private Double capacite;
+    @Enumerated(EnumType.STRING)
+    private VehiculeStatus statut;
 
     @OneToMany(mappedBy = "vehicule",cascade = CascadeType.ALL)
     @ToString.Exclude
-     private List<Livraison>livraisons;
+     private List<Livraison> livraisons;
 }

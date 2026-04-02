@@ -1,9 +1,9 @@
 package com.fleetflow.Service;
 
 
-import com.fleetflow.Dto.ClientDto;
 import com.fleetflow.Dto.VehiculeDto;
 import com.fleetflow.Entity.Vehicule;
+import com.fleetflow.Enums.VehiculeStatus;
 import com.fleetflow.Mapper.VehiculeMapper;
 import com.fleetflow.Repositoryy.VehiculeRepos;
 import org.springframework.stereotype.Service;
@@ -40,8 +40,16 @@ public class VehiculeService {
            return mapper.toDto(repos.save(vehicule));
     }
 
-    public List<VehiculeDto>getVehiculesDisponible(){
-        List<Vehicule>vehicules=repos.findByDisponibleTrue();
+    public List<VehiculeDto>getVehiculesDisponible(VehiculeStatus status){
+        List<Vehicule>vehicules=repos.findByStatut(VehiculeStatus.DISPONIBLE);
         return mapper.toDto(vehicules);
+    }
+    public List<VehiculeDto>getVehiculeByStatut(VehiculeStatus statut){
+        List<Vehicule>vehicule=repos.findByStatut(statut);
+        return mapper.toDto(vehicule);
+    }
+    public List<VehiculeDto>getVehiculeCapaciteGreaterThan(double seuil){
+        List<Vehicule>vehiculeList=repos.findByCapaciteGreaterThan(seuil);
+        return mapper.toDto(vehiculeList);
     }
 }
