@@ -20,7 +20,7 @@ public class ClientController {
         return clientService.getAllClient();
     }
     @PostMapping("/ajouter")
-    public ClientDto ajouterClient(ClientDto dto){
+    public ClientDto ajouterClient(@RequestBody ClientDto dto){
         return clientService.addClient(dto);
     }
     @PutMapping("/modifier/{id}")

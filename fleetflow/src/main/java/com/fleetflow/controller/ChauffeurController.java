@@ -1,7 +1,7 @@
-package com.fleetflow.controller;
+package com.fleetflow.Controller;
 
-import com.fleetflow.dto.ChauffeurDTO;
-import com.fleetflow.service.ChauffeurService;
+import com.fleetflow.Dto.ChauffeurDTO;
+import com.fleetflow.Service.ChauffeurService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

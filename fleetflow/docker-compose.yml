@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: fleetflow-mysql
+    environment:
+      MYSQL_DATABASE: fleetflow_db
+      MYSQL_ROOT_PASSWORD: 1234
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  fleetflow-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fleetflow-app
+    ports:
+      - "8080:8080"
+    environment:
+      DB_HOST: mysql-db
+      SPRING_DATASOURCE_PASSWORD:
+    depends_on:
+      mysql-db:
+        condition: service_healthy
+    restart: on-failure
+
+volumes:
+  mysql_data:

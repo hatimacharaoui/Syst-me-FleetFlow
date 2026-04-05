@@ -10,9 +10,12 @@ import org.mapstruct.MappingTarget;
 import java.util.List;
 
 @Mapper(componentModel = "spring")
-public interface ClientMappper {
-    Client toEntity(ClientDto dto);
+public interface ClientMapper {
     ClientDto toDto(Client client);
+
+    @Mapping(target = "livraisons", ignore = true)
+    Client toEntity(ClientDto dto);
+
     List<ClientDto> toDto(List<Client> clients);
 
     @Mapping(target = "id", ignore = true)

@@ -2,10 +2,8 @@ package com.fleetflow.Controller;
 
 
 import com.fleetflow.Dto.VehiculeDto;
-import com.fleetflow.Enums.VehiculeStatus;
-import com.fleetflow.Service.ClientService;
+import com.fleetflow.Enums.StatutVehicule;
 import com.fleetflow.Service.VehiculeService;
-import lombok.Data;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,11 +20,11 @@ public class VehiculeController {
 
     @GetMapping("/disponibles")
     public ResponseEntity< List<VehiculeDto>> afficherVehiculDisponible(){
-        List<VehiculeDto>disponibles=vehiculeService.getVehiculesDisponible(VehiculeStatus.DISPONIBLE);
+        List<VehiculeDto>disponibles=vehiculeService.getVehiculesDisponible(StatutVehicule.DISPONIBLE);
         return ResponseEntity.ok(disponibles);
     }
     @PostMapping("/ajouter")
-    public VehiculeDto ajouterVehicule(VehiculeDto dto){
+    public VehiculeDto ajouterVehicule(@RequestBody VehiculeDto dto){
         return vehiculeService.addVehicule(dto);
     }
     @PutMapping("/modifier/{id}")
@@ -38,7 +36,7 @@ public class VehiculeController {
         vehiculeService.deleteVehicule(id);
     }
     @GetMapping("/statut")
-    public List<VehiculeDto>findbyStatut(@RequestParam VehiculeStatus status){
+    public List<VehiculeDto>findbyStatut(@RequestParam StatutVehicule status){
         return vehiculeService.getVehiculeByStatut(status);
     }
     @GetMapping("/capacite/{seuil}")

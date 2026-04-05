@@ -12,9 +12,11 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface VehiculeMapper {
-
-    Vehicule toEntity(VehiculeDto dto);
     VehiculeDto toDto(Vehicule vehicule);
+
+    @Mapping(target = "livraisons", ignore = true)
+    Vehicule toEntity(VehiculeDto dto);
+
     List<VehiculeDto> toDto(List<Vehicule> vehicules);
 
     @Mapping(target = "id", ignore = true)

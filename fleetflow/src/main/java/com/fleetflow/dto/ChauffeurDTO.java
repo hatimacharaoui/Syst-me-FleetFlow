@@ -1,4 +1,4 @@
-package com.fleetflow.dto;
+package com.fleetflow.Dto;
 
 import lombok.*;
 

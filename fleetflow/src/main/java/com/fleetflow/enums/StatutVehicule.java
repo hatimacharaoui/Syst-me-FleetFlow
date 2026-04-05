@@ -1,4 +1,4 @@
-package com.fleetflow.enums;
+package com.fleetflow.Enums;
 
 public enum StatutVehicule {
     DISPONIBLE,

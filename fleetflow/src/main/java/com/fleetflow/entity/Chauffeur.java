@@ -1,4 +1,4 @@
-package com.fleetflow.entity;
+package com.fleetflow.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;

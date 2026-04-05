@@ -1,6 +1,6 @@
-package com.fleetflow.entity;
+package com.fleetflow.Entity;
 
-import com.fleetflow.enums.StatutLivraison;
+import com.fleetflow.Enums.StatutLivraison;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;

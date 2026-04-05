@@ -1,7 +1,7 @@
-package com.fleetflow.repository;
+package com.fleetflow.Repository;
 
-import com.fleetflow.entity.Livraison;
-import com.fleetflow.enums.StatutLivraison;
+import com.fleetflow.Entity.Livraison;
+import com.fleetflow.Enums.StatutLivraison;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

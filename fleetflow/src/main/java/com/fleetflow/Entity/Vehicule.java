@@ -1,7 +1,7 @@
 package com.fleetflow.Entity;
 
 
-import com.fleetflow.Enums.VehiculeStatus;
+import com.fleetflow.Enums.StatutVehicule;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,7 +21,7 @@ public class Vehicule {
     private String type;
     private Double capacite;
     @Enumerated(EnumType.STRING)
-    private VehiculeStatus statut;
+    private StatutVehicule statut;
 
     @OneToMany(mappedBy = "vehicule",cascade = CascadeType.ALL)
     @ToString.Exclude

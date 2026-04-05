@@ -1,9 +1,9 @@
-package com.fleetflow.service;
+package com.fleetflow.Service;
 
-import com.fleetflow.dto.ChauffeurDTO;
-import com.fleetflow.entity.Chauffeur;
-import com.fleetflow.mapper.ChauffeurMapper;
-import com.fleetflow.repository.ChauffeurRepository;
+import com.fleetflow.Dto.ChauffeurDTO;
+import com.fleetflow.Entity.Chauffeur;
+import com.fleetflow.Mapper.ChauffeurMapper;
+import com.fleetflow.Repository.ChauffeurRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;

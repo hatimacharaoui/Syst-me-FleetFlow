@@ -1,5 +1,6 @@
 package com.fleetflow.Dto;
 
+import com.fleetflow.Enums.StatutVehicule;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -14,5 +15,5 @@ public class VehiculeDto {
     @NotNull(message = "La capacite est obligatoire")
     private Double capacite;
     @NotNull(message = "Le statut est obligatoire")
-    private String statut;
+    private StatutVehicule statut;
 }

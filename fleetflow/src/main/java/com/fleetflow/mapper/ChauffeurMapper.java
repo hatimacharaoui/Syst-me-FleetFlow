@@ -1,7 +1,7 @@
-package com.fleetflow.mapper;
+package com.fleetflow.Mapper;
 
-import com.fleetflow.dto.ChauffeurDTO;
-import com.fleetflow.entity.Chauffeur;
+import com.fleetflow.Dto.ChauffeurDTO;
+import com.fleetflow.Entity.Chauffeur;
 import org.mapstruct.Mapper;
 
 import java.util.List;

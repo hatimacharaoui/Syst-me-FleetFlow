@@ -1,7 +1,7 @@
-package com.fleetflow.mapper;
+package com.fleetflow.Mapper;
 
-import com.fleetflow.dto.LivraisonDTO;
-import com.fleetflow.entity.Livraison;
+import com.fleetflow.Dto.LivraisonDTO;
+import com.fleetflow.Entity.Livraison;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
@@ -14,6 +14,8 @@ public interface LivraisonMapper {
     LivraisonDTO toDTO(Livraison livraison);
 
     @Mapping(source = "clientId", target = "client.id")
+    @Mapping(target = "chauffeur", ignore = true)
+    @Mapping(target = "vehicule", ignore = true)
     @Mapping(source = "chauffeurId", target = "chauffeur.id")
     @Mapping(source = "vehiculeId", target = "vehicule.id")
     Livraison toEntity(LivraisonDTO livraisonDTO);
